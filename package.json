@@ -1,0 +1,18 @@
+{
+  "name": "angularanddonetcoreprojet",
+  "version": "1.0.0",
+  "description": "C# AspnetCore Web Api Angular 5 Panel And User",
+  "main": "index.js",
+  "scripts": {
+    "panel": "cd ./AngularPanel && yarn run start",
+    "user": "cd ./AngularUser && yarn run start"
+  },
+  "keywords": [
+    "Angular",
+    "C#",
+    "AspNetCore",
+    "Angular"
+  ],
+  "author": "Can Akburu",
+  "license": "MIT"
+}

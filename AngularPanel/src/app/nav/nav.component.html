@@ -1,0 +1,49 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+  <!-- Navbar brand -->
+  <logo>
+    <a class="navbar-brand left" [routerLink]="['/pages/dashboard']">NG MDB</a>
+  </logo>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" [routerLink]="'/pages/dashboard'" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="'/pages/dashboard'" mdbRippleRadius>
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item" [routerLink]="['/pages/cats']" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="['cats']" mdbRippleRadius>Kategoriler</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/pages/tags']" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="['tags']" mdbRippleRadius>Etiketler</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/pages/slider']" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="['slider']" mdbRippleRadius>Slider(Carousel)</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/pages/news']" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="['news']" mdbRippleRadius>Haberler</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-right">
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+          <span class="caret"></span>
+        </a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light" mdbRippleRadius href="#">Kullanıcı Bilgileri</a>
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item waves-light" mdbRippleRadius href="#" (click)="LogOut()">Çıkış Yap</a>
+        </div>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar -->

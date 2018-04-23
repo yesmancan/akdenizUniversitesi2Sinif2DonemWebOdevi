@@ -1,0 +1,63 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar [header]="'Sliderlar'"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <app-breadcrumb [navData]="[
+          {'url':'/pages/dashboard','name':'Anasayfa'},
+          {'url':'/pages/slider/','name':'Slider'},
+          {'url':'/pages/slider/add','name':'Slider Ekle'}
+        ]"></app-breadcrumb>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
+                    <label for="inputNewsName">Slider Adı</label>
+                    <input type="text" class="form-control" #Name placeholder="Slider Adı">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputNewsLabel">Slider Başlığı</label>
+                    <input type="text" class="form-control" #Label placeholder="Slider Başlığı">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputNewsLabel">Kategori Seç</label>
+                    <select #sel>
+                      <option *ngFor="let t of tags;first as isFirst" [value]="t.id" [selected]="isFirst">{{t.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
+                    <input class="hide" id="input-file" multiple type="file" (change)="readImgUrl($event)" [hidden]="true" #img class="md-button md-raised md-primary"
+                    />
+                    <label for="input-file" id="imgLabel" class="md-button md-raised md-primary block">
+                      <img id="PriviewImg" [src]="ImgUrl" *ngIf="ImgUrl" class="img-thumbnail">
+                      <i class="fa fa-picture-o" id="priview" aria-hidden="true" *ngIf="!ImgUrl"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-8 ">
+                  <app-ckeditor #ckeditor></app-ckeditor>
+                </div>
+              </div>
+              <br>
+              <!-- Grid row -->
+              <button type="submit " class="btn btn-primary btn-md" (click)="SaveSlider(ckeditor.value,sel.value,Label.value,Name.value)">Kaydet</button>
+            </form>
+            <!-- Extended default form grid -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

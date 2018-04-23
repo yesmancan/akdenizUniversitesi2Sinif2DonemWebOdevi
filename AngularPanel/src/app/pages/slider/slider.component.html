@@ -1,0 +1,58 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar [header]="'Haberler'"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+          <app-breadcrumb [navData]="[
+          {'url':'/','name':'Anasayfa'},
+          {'url':'/pages/slider','name':'Sliderlar'}
+      ]"></app-breadcrumb>
+        </div>
+        <div class="col-md-1">
+            <button id="openModal" type="button"  [routerLink]="['/pages/slider/add']"  class="btn btn-primary waves-light" mdbRippleRadius>Ekle</button>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Slider Adı</th>
+                  <th scope="col">Slidier Başlığı</th>
+                  <th scope="col">Slider Resmi</th>
+                  <th scope="col">Düzenle</th>
+                  <th scope="col">Sil</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let slider of sliders; index as i;">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ slider.name }}</td>
+                  <td>{{ slider.header }}</td>
+                  <td>
+                    <img [src]="slider.img" />
+                  </td>
+                  <td>
+                    <button [routerLink]="['/pages/slider/update',slider.id,urlFixed(slider.name)]" class="btn btn-success">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="deleteSlider(slider)" class="btn btn-danger">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

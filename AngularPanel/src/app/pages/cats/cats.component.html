@@ -1,0 +1,138 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar [header]="'Kategoriler'"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+          <app-breadcrumb [navData]="[
+        {'url':'dashboard','name':'Anasayfa'},
+        {'url':'cat','name':'Kategoriler'}
+      ]"></app-breadcrumb>
+        </div>
+        <div class="col-md-1">
+          <button id="openModal" type="button"  (click)="form.show();" class="btn btn-primary waves-light"
+            (click)="form.show()" mdbRippleRadius>Ekle</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Kategori Adı</th>
+                  <th scope="col">Kategori Seviye</th>
+                  <th scope="col">Düzenle</th>
+                  <th scope="col">Sil</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of cats; index as i; ">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ c.name }}</td>
+                  <td>{{ c.lvl }}</td>
+                  <td>
+                    <button (click)='formUpdate.show();ngOnCatArray(c);' class="btn btn-success">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)='delCat(c)' class="btn btn-danger">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!--Modal: Ekle form-->
+          <div mdbModal #form="mdb-modal" class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title">
+                    <i class="fa fa-pencil"></i>
+                    <span>Kategori Ekle</span>
+                  </h4>
+                  <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mb-0">
+                  <div class="md-form form-sm">
+                    <i class="fa fa-book prefix"></i>
+                    <input mdbActive type="text" id="form19" class="form-control" [(ngModel)]='cat.name'>
+                    <label for="form19">Kategori Adı</label>
+                  </div>
+
+                  <div class="md-form form-sm">
+                    <i class="fa fa-sort prefix"></i>
+                    <input mdbActive type="number" id="form20" class="form-control" [(ngModel)]='cat.lvl'>
+                    <label for="form20">Kategori Seviyesi</label>
+                  </div>
+                  <div class="text-center mt-1-half">
+                    <button class="btn btn-info mb-2 waves-light" (click)="addCat(cat)" mdbRippleRadius>Ekle
+                      <i class="fa fa-send ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--/.Add Cat-->
+            </div>
+          </div>
+          <!--Modal:Ekle form-->
+          <!--Modal: Güncelle form-->
+          <div mdbModal #formUpdate="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title">
+                    <i class="fa fa-pencil"></i>
+                    <span>Kategori Güncelle</span>
+                  </h4>
+                  <button type="button" class="close waves-effect waves-light" id="formupdateClose" data-dismiss="modal" aria-label="Close" (click)="formUpdate.hide()">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mb-0">
+                  <div class="md-form form-sm">
+                    <i class="fa fa-book prefix"></i>
+                    <input mdbActive type="text" id="form19" class="form-control" [(ngModel)]='cat.name'>
+                    <label for="form19">Kategori Adı</label>
+                  </div>
+
+                  <div class="md-form form-sm">
+                    <i class="fa fa-sort prefix"></i>
+                    <input mdbActive type="number" id="form20" class="form-control" [(ngModel)]='cat.lvl'>
+                    <label for="form20">Kategori Seviyesi</label>
+                  </div>
+                  <div class="text-center mt-1-half">
+                    <button class="btn btn-info mb-2 waves-light" (click)="updateCat(cat)" mdbRippleRadius>Güncelle
+                      <i class="fa fa-send ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--/.Add Cat-->
+            </div>
+          </div>
+          <!--Modal:Ekle form-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

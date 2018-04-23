@@ -1,0 +1,125 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar [header]="'Etiketler'"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+          <app-breadcrumb [navData]="[
+        {'url':'dashboard','name':'Anasayfa'},
+        {'url':'tags','name':'Etiketler'}
+      ]"></app-breadcrumb>
+        </div>
+        <div class="col-md-1">
+          <button id="openModal" type="button"  (click)="form.show();" class="btn btn-primary waves-light"
+            (click)="form.show()" mdbRippleRadius>Ekle</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Etiket Adı</th>
+                  <th scope="col">Düzenle</th>
+                  <th scope="col">Sil</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let t of tags; index as i; ">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ t.name }}</td>
+                  <td>
+                    <button (click)='formUpdate.show();ngOnTagArray(t);' class="btn btn-success">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)='delTag(t)' class="btn btn-danger">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <!--Modal: Ekle form-->
+          <div mdbModal #form="mdb-modal" class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title">
+                    <i class="fa fa-pencil"></i>
+                    <span>Etiket Ekle</span>
+                  </h4>
+                  <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mb-0">
+                  <div class="md-form form-sm">
+                    <i class="fa fa-book prefix"></i>
+                    <input mdbActive type="text" id="form19" class="form-control" [(ngModel)]='tag.name'>
+                    <label for="form19">Etiket Adı</label>
+                  </div>
+                  <div class="text-center mt-1-half">
+                    <button class="btn btn-info mb-2 waves-light" (click)="addTag(tag)" mdbRippleRadius>Ekle
+                      <i class="fa fa-send ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--/.Add Cat-->
+            </div>
+          </div>
+          <!--Modal:Ekle form-->
+          <!--Modal: Güncelle form-->
+          <div mdbModal #formUpdate="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog cascading-modal" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header light-blue darken-3 white-text">
+                  <h4 class="title">
+                    <i class="fa fa-pencil"></i>
+                    <span>Etiket Güncelle</span>
+                  </h4>
+                  <button type="button" class="close waves-effect waves-light" id="formupdateClose" data-dismiss="modal" aria-label="Close" (click)="formUpdate.hide()">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body mb-0">
+                  <div class="md-form form-sm">
+                    <i class="fa fa-book prefix"></i>
+                    <input mdbActive type="text" id="form19" class="form-control" [(ngModel)]='tag.name'>
+                    <label for="form19">Etiket Adı</label>
+                  </div>
+
+                  <div class="text-center mt-1-half">
+                    <button class="btn btn-info mb-2 waves-light" (click)="updateTag(tag)" mdbRippleRadius>Güncelle
+                      <i class="fa fa-send ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--/.Add Cat-->
+            </div>
+          </div>
+          <!--Modal:Ekle form-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

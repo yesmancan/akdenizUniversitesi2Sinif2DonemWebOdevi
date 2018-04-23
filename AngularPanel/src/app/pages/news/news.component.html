@@ -1,0 +1,56 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar [header]="'Haberler'"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+          <app-breadcrumb [navData]="[
+        {'url':'/pages/dashboard/','name':'Anasayfa'},
+        {'url':'/pages/news/','name':'Haberler'}
+      ]"></app-breadcrumb>
+        </div>
+        <div class="col-md-1">
+          <button id="openModal" type="button" [routerLink]="['/pages/news/add']" class="btn btn-primary waves-light" mdbRippleRadius>Ekle</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Haber Adı</th>
+                  <th scope="col">Haber Türü</th>
+                  <th scope="col">Haber Açıklaması</th>
+                  <th scope="col">Düzenle</th>
+                  <th scope="col">Sil</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let new of news; index as i;">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ new.name }}</td>
+                  <td>{{ new.cat }}</td>
+                  <td>{{ new.header }}</td>
+                  <td>
+                    <button [routerLink]="['../news/update',new.id,urlFixed(new.name)]" class="btn btn-success">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button (click)="deleteNew(new)" class="btn btn-danger">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar [header]="'Haberler'"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <app-breadcrumb [navData]="[
+          {'url':'/','name':'Anasayfa'},
+          {'url':'/pages/slider','name':'Sliderlar'},
+          {'url':'/pages/slider/update/'+slider.id+'/'+urlFixed(slider.name),'name':'Sliderı Güncelle'}
+      ]"></app-breadcrumb>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body">
+            <form *ngIf="slider">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
+                    <label for="inputNewsName">Haber Adı</label>
+                    <input type="text" class="form-control" #Name [value]='slider.name' placeholder="Haber Adı">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputNewsLabel">Haber Başlığı</label>
+                    <input type="text" class="form-control"  name="header" [(ngModel)]="slider.header" placeholder="Haber Başlığı">
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="inputNewsLabel">Kategori Seç</label>
+                    <select #sel>
+                      <option *ngFor="let t of tags;first as isFirst" [value]="t.id" [selected]="isFirst">{{t.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
+                    <input class="hide" id="input-file" multiple type="file" (change)="readImgUrl($event)" [hidden]="true" #img class="md-button md-raised md-primary"
+                    />
+                    <label for="input-file" id="imgLabel" class="md-button md-raised md-primary block">
+                      <img id="PriviewImg" [src]="ImgUrl || news.img" *ngIf="ImgUrl" class="img-thumbnail">
+                      <i class="fa fa-picture-o" id="priview" aria-hidden="true" *ngIf="!ImgUrl"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-12">
+                  <app-ckeditor #ckeditor [value]="slider.text"></app-ckeditor>
+                </div>
+              </div>
+              <br>
+              <!-- Grid row -->
+              <button type="submit " class="btn btn-primary btn-md" (click)="UpdateNew(ckeditor.value , sel.value ,slider.header , Name.value)">Güncelle</button>
+            </form>
+            <!-- Extended default form grid -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+html,body  {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.deep-blue-gradient {
+   background-color: #333;
+}
+.card .card-body h3 {
+    margin-bottom: 1rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+.form-header {
+    color: #fff;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border-radius: 2px;
+}
+.login{
+    margin: 10% auto;
+}
+.img{
+    // background-image: url('../../../img/Tuna-Fishing.jpg');
+    background-color: #111222;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; 
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+}

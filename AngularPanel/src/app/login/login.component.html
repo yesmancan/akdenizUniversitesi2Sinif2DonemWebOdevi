@@ -1,0 +1,40 @@
+<div class="img">
+    <!--Section: Blog v.1-->
+    <section class="container">
+        <div class="row">
+            <div class="col-md-6 login">
+                <div class="card">
+                    <div class="card-body">
+                        <!--Header-->
+                        <div class="form-header deep-blue-gradient rounded">
+                            <h3>
+                                <i class="fa fa-lock"></i> Giriş Yap:</h3>
+                        </div>
+                        <!-- Material input email -->
+                        <div class="md-form font-weight-light">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="email" class="form-control" id="materialFormEmailEx" [(ngModel)]="mail" placeholder="Email Adresiniz : ">
+                        </div>
+                        <!-- Material input password -->
+                        <div class="md-form font-weight-light">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input type="password" class="form-control" id="materialFormPasswordEx" (keyup.enter)="onlogin()" [(ngModel)]="pass" placeholder="Şifreniz : ">
+                        </div>
+                        <div class="text-center mt-4 ">
+                            <button class="btn btn-light-blue waves-effect waves-light" (click)="onlogin()">Giriş Yap</button>
+                        </div>
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer ">
+                        <div class="options font-weight-light ">
+                            <p>
+                                <a href="javascript:; ">Şifrenimi Unuttun?</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
