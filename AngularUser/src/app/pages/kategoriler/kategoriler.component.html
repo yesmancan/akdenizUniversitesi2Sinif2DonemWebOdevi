@@ -1,0 +1,113 @@
+<app-breadcrumb [data]="title"></app-breadcrumb>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="entity_wrapper">
+
+        <div class="entity_title header_purple">
+          <h1>
+            <a [routerLink]="['../../../Kategoriler',paramId,title]" target="_blank">{{ title }}</a>
+          </h1>
+        </div>
+        <!-- entity_title -->
+
+        <div class="entity_thumb">
+          <img class="img-responsive" [src]='firstNews.img' [alt]='firstNews.header' *ngIf="firstNews.img;else notLoadImg">
+        </div>
+        <!-- entity_thumb -->
+
+        <div class="entity_title">
+          <a [routerLink]='["/Kategoriler",paramId,title,firstNews.id, urlFixed(firstNews.name)]'>
+            <h3>{{ firstNews.name }} </h3>
+          </a>
+        </div>
+        <!-- entity_title -->
+
+        <div class="entity_meta">
+          <a href="#">{{ firstNews.date | date }} </a>, yazar:
+          <a href="#">{{ firstNews.editor }} </a>
+        </div>
+        <!-- entity_meta -->
+
+        <div class="entity_content">
+          {{ firstNews.header }}
+        </div>
+        <!-- entity_content -->
+
+        <div class="entity_social">
+          <span>
+            <i class="fa fa-share-alt"></i>{{ firstNews.shares }}
+            <a href="#">Paylaşmalar</a>
+          </span>
+          <span>
+            <i class="fa fa-comments-o"></i>{{ firstNews.commentCount }}
+            <a href="#">Yorumlar</a>
+          </span>
+        </div>
+        <!-- entity_social -->
+
+      </div>
+      <!-- entity_wrapper -->
+      <div class="row" *ngIf="news">
+        <div class="col-md-6" *ngFor="let new of news" >
+          <div class="category_article_body">
+            <div class="top_article_img">
+              <img class="img-responsive" [src]='new.img' [alt]='new.header' *ngIf="new.img;else notLoadImg">
+            </div>
+            <!-- row -->
+
+            <div class="category_article_title">
+              <h5>
+                <a [routerLink]='["/Kategoriler",paramId,title,new.id, urlFixed(new.name)]'>{{new.name}}</a>
+              </h5>
+            </div>
+            <!-- row -->
+
+            <div class="article_date">
+              <a href="#">{{ new.date | date }} </a>, yazar:
+              <a href="#">{{ new.editor }} </a>
+            </div>
+            <!-- row -->
+
+            <div class="category_article_content">
+              {{ new.header }}
+            </div>
+            <!-- row -->
+
+            <div class="article_social">
+              <span>
+                <i class="fa fa-share-alt"></i>{{ new.shares }}
+                <a href="#">Paylaşmalar</a>
+              </span>
+              <span>
+                <i class="fa fa-comments-o"></i>{{ news.commentCount }}
+                <a href="#">Yorumlar</a>
+              </span>
+            </div>
+            <!-- row -->
+
+          </div>
+          <!-- row -->
+
+        </div>
+        <!-- row -->
+        <!-- col-md-6 -->
+
+      </div>
+      <!-- row -->
+    </div>
+    <!-- Left Section -->
+    <div class="col-md-4">
+      <popular-news></popular-news>
+      <!-- Popular News -->
+      <reviews></reviews>
+      <!-- Reviews News -->
+      <mostcommented></mostcommented>
+      <!-- Most Commented News -->
+    </div>
+    <!-- Right Section -->
+  </div>
+</div>
+<ng-template #notLoadImg>
+  <img alt="Resim Yükleniyor..." title="Resim Yükleniyor..." class="img-responsive">
+</ng-template>

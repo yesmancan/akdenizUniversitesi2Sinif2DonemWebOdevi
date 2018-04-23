@@ -1,0 +1,111 @@
+.wrap {
+  position: fixed;
+  background-color: rgb(65, 84, 185);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999999;
+  color: #fff;
+  margin: auto;
+  text-align: center;
+}
+
+.wrap-container {
+  position: relative;
+  height: 100%;
+  margin: auto;
+}
+
+h1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35%;
+  bottom: 0;
+  margin: 0 auto;
+  height: 100%;
+  padding: 20px 30px;
+}
+
+input {
+  position: absolute;
+  font-size: 36px;
+  color: #fff;
+  width: 500px;
+  height: 10px;
+  left: 0;
+  right: 0;
+  top: 25%;
+  bottom: 0;
+  margin: 0 auto;
+  padding: 20px 15px;
+  background-color: transparent;
+  ::-webkit-input-placeholder {
+    color: #fff;
+  }
+  :-moz-placeholder {
+    color: #fff;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    color: #fff;
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+}
+
+ul {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  bottom: 0;
+  margin: 0 auto;
+  padding: 20px 30px;
+  overflow: auto;
+}
+
+ul>li {
+  height: 180px;
+  list-style: none;
+  font-size: 28px;
+  border-bottom: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+ul>li>a {
+  color: #fff;
+  top: 15%;
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+ul>li>.backgroundImg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+  border-radius: 150px;
+  float: left;
+}
+
+.fa-times-circle {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  font-size: 48px;
+}
+
+.fa-times-circle:hover {
+  color: #333;
+}

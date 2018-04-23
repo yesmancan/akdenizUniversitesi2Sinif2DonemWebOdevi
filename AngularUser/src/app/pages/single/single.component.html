@@ -1,0 +1,71 @@
+<section id="entity_section" class="entity_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="entity_wrapper">
+          <div class="entity_title">
+            <h1>
+              {{ news.name }}
+            </h1>
+          </div>
+          <!-- entity_title -->
+
+          <div class="entity_meta">
+            <a href="#" target="_self">{{ news.date | dateFormat }}</a>, sEditor:
+            <a href="#" target="_self">{{ news.editor }}</a>
+          </div>
+          <!-- entity_meta -->
+
+          <div class="entity_rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fas fa-star-half"></i>
+          </div>
+          <!-- entity_rating -->
+
+          <div class="entity_social">
+            <a href="#" class="icons-sm sh-ic">
+              <i class="fas fa-share-alt-square"></i>
+              <b>424</b>
+              <span class="share_ic">Shares</span>
+            </a>
+            <a href="#" class="icons-sm fb-ic">
+              <i class="fab fa-facebook-square"></i>
+            </a>
+            <!--Twitter-->
+            <a href="#" class="icons-sm tw-ic">
+              <i class="fab fa-twitter-square"></i>
+            </a>
+            <!--Google +-->
+            <a href="#" class="icons-sm inst-ic">
+              <i class="fab fa-google-plus-square"></i>
+            </a>
+            <!--Linkedin-->
+            <a href="#" class="icons-sm tmb-ic">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <!--Pinterest-->
+            <a href="#" class="icons-sm rss-ic">
+              <i class="fab fa-pinterest-square"></i>
+            </a>
+          </div>
+          <!-- entity_social -->
+
+          <div class="entity_thumb">
+            <img class="img-responsive" [src]='news.img' [alt]='news.header'>
+          </div>
+          <!-- entity_thumb -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="entity_content" [innerHTML]='news.context'></div>
+            </div>
+          </div>
+          <!-- entity_content -->
+        </div>
+        <!-- entity_wrapper -->
+      </div>
+    </div>
+  </div>
+</section>

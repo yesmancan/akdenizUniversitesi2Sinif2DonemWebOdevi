@@ -1,0 +1,16 @@
+<div class="wrap">
+  <div class="wrap-container">
+    <h1>Arama Sonucu</h1>
+    <input #searchBox class="search-input " id="search-box" (keypress)="search(searchBox.value)" type="text" placeholder="ara"
+    />
+    <span (click)="close()">
+      <i class="fa fa-times-circle" aria-hidden="true"></i>
+    </span>
+    <ul class='search-input'>
+      <li *ngFor="let new of Searchnews" [routerLink]="['/Kategoriler/'+new.cat+'/search/',new.id,urlFixed(new.name)]" (click)="close()">
+        <div class="backgroundImg" [ngStyle]="{'background-image': 'url(' + new.img + ')'}"></div>
+        <a href="javascript:;">{{new.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
